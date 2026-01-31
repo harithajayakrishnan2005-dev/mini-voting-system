@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logout-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .logout-btn:hover {
+            opacity: 0.8;
+        }
+        main {
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Admin Panel</h2>
+
+    <nav>
+        <a href="{% url 'admin_module:dashboard' %}">Dashboard</a>
+        <a href="{% url 'admin_module:poll_list' %}">Polls</a>
+        <a href="{% url 'admin_module:vote_list' %}">Votes</a>
+        <a href="{% url 'admin_module:feedback_list' %}">Feedback</a>
+
+        <form method="post" action="{% url 'admin_module:admin_logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

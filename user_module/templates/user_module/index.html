@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Voting and Feedback System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f4f6f8;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 90px 120px;  
+            width: 900px;
+            min-height: 450px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: 42px;
+            font-weight: 600;
+            color: #1f2933;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            color: #616e7c;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .btn {
+            padding: 16px 44px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-home {
+            background: #f59e0b;  
+            color: white;
+        }
+        .btn-home:hover {
+            background: #d97706;   }
+
+      
+        .btn-login {
+            background: #2563eb;
+            color: white;
+        }
+        .btn-login:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-register {
+            background: #10b981;
+            color: white;
+        }
+        .btn-register:hover {
+            background: #059669;
+        }
+
+        .footer {
+            margin-top: 70px;
+            font-size: 14px;
+            color: #9aa5b1;
+        }
+
+        @media (max-width: 1000px) {
+            .container {
+                width: 85%;
+                padding: 60px 40px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mini Voting and Feedback System</h1>
+
+        <p class="subtitle">
+            A secure, scalable, and user-friendly platform for managing online polls,
+            collecting votes, and gathering valuable feedback.
+        </p>
+
+        <div class="btn-group">
+            <a href="/" class="btn btn-home">Home</a>
+            <a href="{% url 'user:login' %}" class="btn btn-login">Login</a>
+            <a href="{% url 'user:register' %}" class="btn btn-register">Register</a>
+        </div>
+
+        <div class="footer">
+            © 2026 · Mini Voting and Feedback System
+        </div>
+    </div>
+
+</body>
+</html>

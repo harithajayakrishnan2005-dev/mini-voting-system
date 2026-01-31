@@ -1,0 +1,50 @@
+{% extends "user_module/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2 style="text-align:center; margin-bottom:20px;">User Dashboard</h2>
+
+<div style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;">
+
+    <div style="padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h3>Available Polls</h3>
+        <p>View and vote in active polls.</p>
+        <br>
+        <a href="{% url 'user:poll_list' %}" style="padding:6px 12px; background:#4CAF50; color:white; text-decoration:none; border-radius:5px;">View Polls</a>
+    </div>
+
+   
+    <div style="padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h3>My Votes</h3>
+        <p>Check polls you have already voted.</p>
+        <br>
+        <a href="{% url 'user:my_vote' %}" style="padding:6px 12px; background:#2196F3; color:white; text-decoration:none; border-radius:5px;">My Votes</a>
+    </div>
+
+    
+    <div style="padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h3>Feedback</h3>
+        <p>Give feedback and ratings.</p>
+        <br>
+        <a href="{% url 'user:feedback' %}" style="padding:6px 12px; background:#FF9800; color:white; text-decoration:none; border-radius:5px;">Give Feedback</a>
+    </div>
+
+   
+    <div style="padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h3>Results</h3>
+        <p>Check results of polls.</p>
+        <br>
+        <a href="{% url 'user:poll_results' poll_id=1 %}" style="padding:6px 12px; background:#9C27B0; color:white; text-decoration:none; border-radius:5px;">View Results</a>
+    </div>
+
+   
+    <div style="padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h3>Profile</h3>
+        <p>View and edit your profile.</p>
+        <br>
+        <a href="{% url 'user:profile' %}" style="padding:6px 12px; background:#FF5722; color:white; text-decoration:none; border-radius:5px;">View Profile</a>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "admin_module/base_admin.html" %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 50px auto; padding: 30px; border-radius: 10px; background-color: #f8f9fa; box-shadow: 0 5px 15px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+    <h2 style="text-align:center; color:#343a40; margin-bottom: 25px;">Add New Poll</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+      
+        <div style="margin-bottom: 20px;">
+            <label for="question" style="font-weight:bold; display:block; margin-bottom:5px;">Poll Question:</label>
+            <input type="text" name="question" id="question" placeholder="Enter poll question" required
+                   style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px;">
+        </div>
+
+       
+        <div style="margin-bottom: 20px;">
+            <label style="font-weight:bold; display:block; margin-bottom:5px;">Options:</label>
+            <input type="text" name="option1" placeholder="Option 1" required
+                   style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; margin-bottom:10px; font-size:16px;">
+            <input type="text" name="option2" placeholder="Option 2" required
+                   style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; margin-bottom:10px; font-size:16px;">
+            <input type="text" name="option3" placeholder="Option 3 (optional)"
+                   style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; margin-bottom:10px; font-size:16px;">
+            <input type="text" name="option4" placeholder="Option 4 (optional)"
+                   style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px;">
+        </div>
+
+      
+        <div style="text-align:center;">
+            <button type="submit"
+                    style="background-color:#007bff; color:white; padding:12px 30px; border:none; border-radius:6px; font-size:16px; cursor:pointer;">
+                Add Poll
+            </button>
+        </div>
+    </form>
+
+  
+    <p style="text-align:center; margin-top:25px;">
+        <a href="{% url 'admin_module:poll_list' %}" style="text-decoration:none; color:#17a2b8;">Back to Polls</a>
+    </p>
+</div>
+{% endblock %}

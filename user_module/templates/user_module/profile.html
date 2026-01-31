@@ -1,0 +1,32 @@
+{% extends "user_module/base.html" %}
+{% load static %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<div style="max-width:600px; margin:50px auto; font-family:Arial, sans-serif;">
+
+    <h2 style="text-align:center; color:#0056b3; margin-bottom:30px;">My Profile</h2>
+
+    <div style="text-align:center; padding:20px; border:1px solid #ccc; border-radius:10px;">
+
+        {% if user_profile.image %}
+            <img src="{{ user_profile.image.url }}" alt="Profile Image" style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px;">
+        {% else %}
+            <img src="{% static 'images/default.png' %}" alt="Default Image" style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px;">
+        {% endif %}
+
+        <h3>{{ user.username }}</h3>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Contact:</strong> {{ user_profile.contact }}</p>
+        <p><strong>Address:</strong> {{ user_profile.address }}</p>
+        <p><strong>Place:</strong> {{ user_profile.place }}</p>
+        <p><strong>Age:</strong> {{ user_profile.age }}</p>
+
+        <a href="{% url 'user:edit_profile' %}" style="display:inline-block; margin-top:20px; background-color:#0056b3; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">
+            Edit Profile
+        </a>
+
+    </div>
+</div>
+{% endblock %}

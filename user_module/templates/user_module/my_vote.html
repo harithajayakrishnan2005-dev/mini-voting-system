@@ -1,0 +1,61 @@
+{% extends "user_module/base.html" %}
+{% block content %}
+<h2 style="text-align:center; margin-bottom:20px;">My Votes</h2>
+<div style="max-width:700px; margin:auto;">
+
+{% if votes %}
+    {% for vote in votes %}
+        <div style="
+            background:#f9f9f9;
+            border:1px solid #ddd;
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:8px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        ">
+
+            <div>
+                <p style="margin:0; font-weight:600;">
+                    {{ vote.poll.question }}
+                </p>
+                <p style="margin:5px 0 0; color:#555;">
+                    You voted: <b>{{ vote.option.text }}</b>
+                </p>
+            </div>
+
+            <a href="{% url 'user:poll_results' vote.poll.id %}"
+               style="
+               text-decoration:none;
+               background:#007bff;
+               color:white;
+               padding:8px 14px;
+               border-radius:5px;
+               font-size:14px;">
+               View Results
+            </a>
+
+        </div>
+    {% endfor %}
+{% else %}
+    <p style="text-align:center; color:#777;">
+        You haven't voted yet.
+    </p>
+{% endif %}
+
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+    <a href="{% url 'user:dashboard' %}"
+       style="
+       text-decoration:none;
+       color:white;
+       background:#6c757d;
+       padding:8px 16px;
+       border-radius:5px;">
+       ← Back to Dashboard
+    </a>
+</div>
+
+{% endblock %}

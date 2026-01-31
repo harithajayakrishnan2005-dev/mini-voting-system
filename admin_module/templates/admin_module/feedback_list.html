@@ -1,0 +1,51 @@
+{% extends "admin_module/base_admin.html" %}
+
+
+{% block content %}
+<div style="max-width: 900px; margin: 40px auto; font-family: Arial, sans-serif;">
+    <h2 style="text-align: center; color: #333;">User Feedback</h2>
+
+    {% if feedbacks %}
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #007bff; color: white; text-align: left;">
+                <th style="padding: 10px; border: 1px solid #ddd;">User</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Poll</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Rating</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fb in feedbacks %}
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">{{ fb.user.username }}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    {% if fb.poll %}
+                        {{ fb.poll.question }}
+                    {% else %}
+                        General
+                    {% endif %}
+                </td>
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    {% if fb.rating %}
+                        {% for i in "01234"|slice:":fb.rating"|make_list %}
+                            ★
+                        {% endfor %}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{{ fb.comment|default:"-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p style="text-align: center; margin-top: 20px;">No feedback submitted yet.</p>
+    {% endif %}
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'admin_module:dashboard' %}" style="text-decoration: none; color: #007bff;">Back to Dashboard</a>
+    </p>
+</div>
+{% endblock %}

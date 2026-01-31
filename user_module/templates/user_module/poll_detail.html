@@ -1,0 +1,15 @@
+{% extends 'user_module/base.html' %}
+{% block content %}
+<h2 style="text-align:center;">{{ poll.question }}</h2>
+
+<form method="post" action="{% url 'vote_poll' poll.id %}">
+    {% csrf_token %}
+    {% for option in poll.options.all %}
+        <div>
+            <input type="radio" id="option{{ option.id }}" name="option" value="{{ option.id }}">
+            <label for="option{{ option.id }}">{{ option.text }}</label>
+        </div>
+    {% endfor %}
+    <button type="submit" style="margin-top:10px;">Vote</button>
+</form>
+{% endblock %}

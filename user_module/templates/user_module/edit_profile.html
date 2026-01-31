@@ -1,0 +1,22 @@
+{% extends "user_module/base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<div style="max-width:600px; margin:50px auto; font-family:Arial, sans-serif;">
+
+    <h2 style="text-align:center; color:#0056b3; margin-bottom:30px;">Edit Profile</h2>
+
+    <div style="padding:20px; border:1px solid #ccc; border-radius:10px;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <button type="submit" style="background-color:#0056b3; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+                Save Changes
+            </button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "admin_module/base_admin.html" %}
+
+{% block content %}
+
+<div style="text-align:center; margin-bottom:40px;">
+    <h1 style="font-size:40px; color:#333;">Welcome, Admin</h1>
+    <p style="font-size:20px; color:#555; font-style:italic;">
+        Here is a quick overview of the current polls, votes, and feedback.
+    </p>
+</div>
+
+
+<div style="display:flex; flex-wrap: wrap; justify-content:center; gap:30px;">
+
+   
+    <div style="flex:1 1 250px; max-width:320px; background: linear-gradient(135deg, #4a90e2, #007bff); color:white; border-radius:16px; padding:35px; box-shadow:0 6px 12px rgba(0,0,0,0.15); text-align:center; transition:transform 0.3s;">
+        <h2 style="font-size:32px; margin-bottom:10px;">{{ total_polls }}</h2>
+        <p style="font-size:18px; margin-bottom:25px; font-weight:bold;">Total Polls</p>
+        <a href="{% url 'admin_module:poll_list' %}" style="text-decoration:none; color:#007bff; background-color:white; padding:12px 25px; border-radius:8px; font-weight:bold; display:inline-block;">
+            View Polls
+        </a>
+    </div>
+
+    
+    <div style="flex:1 1 250px; max-width:300px; background-color:#28a745; color:white; border-radius:12px; padding:30px; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s;">
+        <h2 style="font-size:28px; margin-bottom:10px;">{{ total_votes }}</h2>
+        <p style="font-size:18px; margin-bottom:20px;">Total Votes</p>
+        <a href="{% url 'admin_module:vote_list' %}" style="text-decoration:none; color:#28a745; background-color:white; padding:10px 20px; border-radius:6px; font-weight:bold; display:inline-block;">
+            View Votes
+        </a>
+    </div>
+
+   
+    <div style="flex:1 1 250px; max-width:300px; background-color:#ffc107; color:white; border-radius:12px; padding:30px; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s;">
+        <h2 style="font-size:28px; margin-bottom:10px;">{{ total_feedbacks }}</h2>
+        <p style="font-size:18px; margin-bottom:20px;">Total Feedbacks</p>
+        <a href="{% url 'admin_module:feedback_list' %}" style="text-decoration:none; color:#ffc107; background-color:white; padding:10px 20px; border-radius:6px; font-weight:bold; display:inline-block;">
+            View Feedback
+        </a>
+    </div>
+
+</div>
+
+
+<style>
+div[style*="transition:transform"] {
+    cursor:pointer;
+}
+div[style*="transition:transform"]:hover {
+    transform: translateY(-6px);
+    box-shadow:0 12px 20px rgba(0,0,0,0.25);
+}
+</style>
+
+{% endblock %}
+
