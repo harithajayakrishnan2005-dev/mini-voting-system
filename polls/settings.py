@@ -8,8 +8,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k&!ehi_h!*heuv_(w4!nhltt&__==%f=fk04h-*a7j0_$1r-u='
 DEBUG = True
-ALLOWED_HOSTS = ['mini-voting-system-4.onrender.com', 'mini-voting-system-5.onrender.com', 'localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
